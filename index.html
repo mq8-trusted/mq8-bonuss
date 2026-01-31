@@ -1,0 +1,421 @@
+<!DOCTYPE html>
+<html lang="ms">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>MQ8 Bonus</title>
+
+<style>
+html, body {
+  margin: 0;
+  padding: 0;
+  background: #0b0b0b;
+  font-family: Arial, sans-serif;
+  color: #f5d77a;
+  overflow: hidden;
+}
+
+/* ===== 顶部 Title ===== */
+.top-title {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 90px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+  background: linear-gradient(
+    to bottom,
+    rgba(11,11,11,0.9),
+    rgba(11,11,11,0)
+  );
+  text-align: center;
+  pointer-events: none;
+}
+
+.top-title h1 {
+  margin: 0;
+  font-size: 26px;
+  letter-spacing: 3px;
+  font-weight: bold;
+}
+
+.top-title p {
+  margin: 6px 0 0;
+  font-size: 13px;
+  color: #ddd;
+}
+
+/* ===== 展示窗口 ===== */
+.flow-wrapper {
+  width: 100%;
+  overflow: hidden;
+  padding: 140px 0 160px;
+  touch-action: none;
+}
+
+/* ===== 滚动轨道 ===== */
+.flow-track {
+  display: flex;
+  width: max-content;
+  animation: scrollRight 70s linear infinite;
+  will-change: transform;
+}
+
+.flow-track.paused {
+  animation: none;
+}
+
+/* ===== Bonus 卡 ===== */
+.bonus-card {
+  width: 260px;
+  height: 360px;
+  margin: -35px 14px;
+  background: radial-gradient(circle at top, #1a1a1a, #0f0f0f);
+  border: 2px solid #d4af37;
+  border-radius: 48px;
+  padding: 26px 18px;
+  box-sizing: border-box;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: center;
+
+  transition:
+    transform .35s ease,
+    opacity .35s ease,
+    filter .35s ease;
+}
+
+.bonus-card.active {
+  transform: scale(1.15);
+  z-index: 10;
+  filter: brightness(1.15);
+}
+
+.bonus-card.dim {
+  opacity: 0.35;
+  filter: grayscale(30%);
+}
+
+.bonus-card h2 {
+  margin: 0 0 14px;
+  font-size: 18px;
+}
+
+.tc {
+  font-size: 13px;
+  line-height: 1.7;
+  color: #eee;
+}
+
+/* ===== 自动滚动动画 ===== */
+@keyframes scrollRight {
+  from { transform: translateX(0); }
+  to   { transform: translateX(-50%); }
+}
+
+/* ===== 底部 Backup 联系（左右排列，手机也左右） ===== */
+.bottom-hotline {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  padding: 14px 0 18px;
+  display: flex;
+  justify-content: center;
+  z-index: 1000;
+  background: linear-gradient(
+    to top,
+    rgba(11,11,11,0.92),
+    rgba(11,11,11,0)
+  );
+  pointer-events: none;
+}
+
+.hotline-box {
+  pointer-events: auto;
+  background: rgba(0,0,0,0.6);
+  border: 1px solid #d4af37;
+  border-radius: 18px;
+  padding: 10px 14px;
+  box-shadow: 0 0 18px rgba(212,175,55,0.35);
+  width: 92%;
+  max-width: 420px;
+}
+
+.hotline-row {
+  display: flex;
+  gap: 10px;
+  justify-content: space-between;
+}
+
+.hotline-row + .hotline-row {
+  margin-top: 8px;
+}
+
+.hotline-row a {
+  flex: 1 1 48%;
+  text-align: center;
+  color: #f5d77a;
+  text-decoration: none;
+  font-size: 14px;
+  font-weight: 600;
+  padding: 8px 6px;
+  border-radius: 999px;
+  border: 1px solid rgba(212,175,55,0.6);
+  background: rgba(0,0,0,0.45);
+  white-space: nowrap;
+}
+</style>
+</head>
+
+<body>
+
+<!-- ===== 顶部标题 ===== -->
+<div class="top-title">
+  <h1>MQ8 BONUS</h1>
+  <p>Info Admin Untuk claim Mana Satu Bonus</p>
+</div>
+
+<div class="flow-wrapper" id="wrapper">
+  <div class="flow-track" id="track">
+
+<div class="bonus-card">
+  <h2>WELCOME BONUS 50%</h2>
+  <div class="tc">
+    <strong>Terma &amp; Syarat</strong><br><br>
+    • Min Deposit RM30<br>
+    • Min Cuci X3<br>
+    • Masa Cuci Akan Tolak Bonus<br>
+    • Hanya Dibenarkan Main Slot Game
+  </div>
+</div>
+<div class="bonus-card">
+  <h2>WELCOME BONUS 60%</h2>
+  <div class="tc">
+    <strong>Terma &amp; Syarat</strong><br><br>
+    • Min Deposit RM30<br>
+    • Min Cuci X4<br>
+    • Masa Cuci Akan Tolak Bonus<br>
+    • Hanya Dibenarkan Main Slot Game
+  </div>
+</div>
+<div class="bonus-card">
+  <h2>WELCOME BONUS 70%</h2>
+  <div class="tc">
+    <strong>Terma &amp; Syarat</strong><br><br>
+    • Min Deposit RM30<br>
+    • Min Cuci X5<br>
+    • Masa Cuci Akan Tolak Bonus<br>
+    • Hanya Dibenarkan Main Slot Game
+  </div>
+</div>
+<div class="bonus-card">
+  <h2>WEEKEND BONUS 30%</h2>
+  <div class="tc">
+    <strong>Terma &amp; Syarat</strong><br><br>
+    • Min Deposit RM30<br>
+    • Min Cuci X3<br>
+    • Masa Cuci Akan Tolak Bonus<br>
+    • Hanya Dibenarkan Main Slot Game<br>
+    • Sabtu & Ahad Sahaja
+  </div>
+</div>
+<div class="bonus-card">
+  <h2>DAILY BONUS 20%</h2>
+  <div class="tc">
+    <strong>Terma &amp; Syarat</strong><br><br>
+    • Min Deposit RM30<br>
+    • Min Cuci X3<br>
+    • Masa Cuci Akan Tolak Bonus<br>
+    • Hanya Dibenarkan Main Slot Game<br>
+    • Setiap Hari Deposit Pertama
+  </div>
+</div>
+<div class="bonus-card">
+  <h2>UNLIMITED BONUS 10%</h2>
+  <div class="tc">
+    <strong>Terma &amp; Syarat</strong><br><br>
+    • Min Deposit RM30<br>
+    • Min Cuci X2<br>
+    • Masa Cuci Akan Tolak Bonus<br>
+    • Hanya Dibenarkan Main Slot Game<br>
+    • Setiap Deposit Boleh Claim
+  </div>
+</div>
+
+<div class="bonus-card">
+  <h2>NO TURNOVER 20%</h2>
+  <div class="tc">
+    <strong>Terma &amp; Syarat</strong><br><br>
+    • Min Deposit RM30<br>
+    • Max Cuci 80% Sahaja<br>
+    • Hanya Dibenarkan Main Slot Game<br>
+    • Setiap Hari Claim Sekali
+  </div>
+</div> 
+<div class="bonus-card">
+  <h2>NO TURNOVER 30%</h2>
+  <div class="tc">
+    <strong>Terma &amp; Syarat</strong><br><br>
+    • Min Deposit RM30<br>
+    • Max Cuci 70% Sahaja<br>
+    • Hanya Dibenarkan Main Slot Game<br>
+    • Setiap Hari Claim Sekali
+  </div>
+</div>
+<div class="bonus-card">
+  <h2>NO TURNOVER 40%</h2>
+  <div class="tc">
+    <strong>Terma &amp; Syarat</strong><br><br>
+    • Min Deposit RM30<br>
+    • Max Cuci 60% Sahaja<br>
+    • Hanya Dibenarkan Main Slot Game<br>
+    • Setiap Hari Claim Sekali
+  </div>
+</div>
+<div class="bonus-card">
+  <h2>BONUS KUMPUL HARIAN</h2>
+  <div class="tc">
+    <strong>Terma &amp; Syarat</strong><br><br>
+    • TOPUP RM10X3 FREE RM3<br>
+    • TOPUP RM20X3 FREE RM7<br>
+    • TOPUP RM30X3 FREE RM11<br>
+    • TOPUP RM50X3 FREE RM18<br>
+    • TOPUP RM100X3 FREE RM35<br>
+    • TOPUP RM500X3 FREE RM175
+  </div>
+</div>
+<div class="bonus-card">
+  <h2>RELOAD PIN BONUS</h2>
+  <div class="tc">
+    <strong>Terma &amp; Syarat</strong><br><br>
+    • PIN RM10 FREE RM2.50<br>
+    • PIN RM30 FREE RM5<br>
+    • PIN RM50 FREE RM15<br><br>
+    • Min Cuci X5<br>
+    • Max Cuci 60% Sahaja<br>
+    • Hanya Dibenarkan Main Slot Game<br>
+    • Setiap Deposit Reload Boleh Claim
+  </div>
+</div>
+    
+
+  </div>
+</div>
+
+<!-- ===== 底部 Backup 联系 ===== -->
+<div class="bottom-hotline">
+  <div class="hotline-box">
+
+    <div class="hotline-row">
+      <a href="" target="_blank">🟢 WS : 0175594168</a>
+      <a href="" target="_blank">✈️ TLG : 01139425463</a>
+    </div>
+
+    <div class="hotline-row">
+      <a href="" target="_blank">🟢 WS : 01131705738</a>
+      <a href="" target="_blank">✈️ TLG : 01128692252</a>
+    </div>
+
+  </div>
+</div>
+
+<script>
+const wrapper = document.getElementById('wrapper');
+const track = document.getElementById('track');
+const cards = document.querySelectorAll('.bonus-card');
+
+let startX = 0;
+let currentX = 0;
+let dragging = false;
+let moved = false;
+let resumeTimer = null;
+
+function start(e) {
+  dragging = true;
+  moved = false;
+  startX = e.touches ? e.touches[0].clientX : e.clientX;
+  track.classList.add('paused');
+}
+
+function move(e) {
+  if (!dragging) return;
+  const x = e.touches ? e.touches[0].clientX : e.clientX;
+  const dx = x - startX;
+  if (Math.abs(dx) > 10) moved = true;
+  track.style.transform = `translateX(${currentX + dx}px)`;
+  e.preventDefault();
+}
+
+function end(e) {
+  if (!dragging) return;
+  dragging = false;
+  const endX = e.changedTouches ? e.changedTouches[0].clientX : e.clientX;
+  const dx = endX - startX;
+
+  if (!moved) {
+    const card = e.target.closest('.bonus-card');
+    if (card) selectCard(card);
+  } else {
+    currentX += dx;
+  }
+  resetResume();
+}
+
+function selectCard(card) {
+  cards.forEach(c => {
+    c.classList.remove('active');
+    c.classList.add('dim');
+  });
+
+  card.classList.add('active');
+  card.classList.remove('dim');
+  track.classList.add('paused');
+
+  requestAnimationFrame(() => {
+    const w = wrapper.getBoundingClientRect();
+    const c = card.getBoundingClientRect();
+    const delta = (c.left + c.width/2) - (w.left + w.width/2);
+    currentX -= delta;
+    track.style.transform = `translateX(${currentX}px)`;
+  });
+}
+
+function resetResume() {
+  clearTimeout(resumeTimer);
+  resumeTimer = setTimeout(clearAll, 5000);
+}
+
+function clearAll() {
+  cards.forEach(c => c.classList.remove('active','dim'));
+  track.style.transform = '';
+  track.classList.remove('paused');
+  currentX = 0;
+}
+
+wrapper.addEventListener('touchstart', start, { passive:false });
+wrapper.addEventListener('touchmove', move, { passive:false });
+wrapper.addEventListener('touchend', end);
+wrapper.addEventListener('mousedown', start);
+wrapper.addEventListener('mousemove', move);
+wrapper.addEventListener('mouseup', end);
+wrapper.addEventListener('click', e => {
+  if (!e.target.closest('.bonus-card')) clearAll();
+});
+</script>
+
+</body>
+</html>
+
+
+
+
+
+
+
